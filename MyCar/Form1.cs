@@ -15,6 +15,7 @@ namespace MyCar
         public Form1()
         {
             InitializeComponent();
+            monthYearBindingSource.Sort = " Year,Month";
         }
 
         private void fuelBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -35,8 +36,6 @@ namespace MyCar
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "myCarDataSet1.Fuel". При необходимости она может быть перемещена или удалена.
-            this.fuelTableAdapter.Fill(this.myCarDataSet1.Fuel);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "myCarDataSet.MonthYear". При необходимости она может быть перемещена или удалена.
             this.monthYearTableAdapter.Fill(this.myCarDataSet.MonthYear);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "myCarDataSet.Fuel". При необходимости она может быть перемещена или удалена.
@@ -44,13 +43,28 @@ namespace MyCar
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btFilter_Click(object sender, EventArgs e)
         {
             DataRow SelectedRow = ((DataRowView)cbFilterMonthYear.SelectedItem).Row;
-            MessageBox.Show(String.Format("{0} {1}", SelectedRow["Month"],SelectedRow["Year"]));
+            Int32 lYear = Int32.Parse(SelectedRow["Year"].ToString());
+            Int32 lMonth = Int32.Parse(SelectedRow["Month"].ToString());
+            if (lYear == 0)
+            {
+                fuelBindingSource.Filter = "";
+                return;
+            }
+            DateTime lDateBegin = new DateTime(lYear, lMonth, 1);
+            DateTime lDateEnd = new DateTime(lYear, lMonth, DateTime.DaysInMonth(lYear,lMonth));
+
+
+            fuelBindingSource.Filter = String.Format("DateFilling >= '{0:yyyy-MM-dd}' AND DateFilling <= '{1:yyyy-MM-dd}'", lDateBegin, lDateEnd);
+            //"DateFilling >= '20180101' "; //+ d.ToShortDateString();
+            
+            //MessageBox.Show(String.Format("{0} {1}", SelectedRow["Month"], SelectedRow["Year"]));
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void btExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
