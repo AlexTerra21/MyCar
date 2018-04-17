@@ -12,6 +12,11 @@ namespace MyCar
 {
     public partial class Form1 : Form
     {
+        /// <summary>
+        /// Флаг показывающий, что строка находится в режиме редактирования
+        /// </summary>
+        Boolean mOnEditRow = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -43,7 +48,23 @@ namespace MyCar
 
         }
 
-        private void btFilter_Click(object sender, EventArgs e)
+
+        private void UpdateNow()
+        {
+            String lFilter = fuelBindingSource.Filter;
+            this.fuelTableAdapter.Update(myCarDataSet);
+            this.monthYearTableAdapter.Fill(this.myCarDataSet.MonthYear);
+            this.fuelTableAdapter.Fill(this.myCarDataSet.Fuel);
+            fuelBindingSource.Filter = lFilter;
+        }
+
+        private void btExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        
+
+        private void cbFilterMonthYear_SelectionChangeCommitted(object sender, EventArgs e)
         {
             DataRow SelectedRow = ((DataRowView)cbFilterMonthYear.SelectedItem).Row;
             Int32 lYear = Int32.Parse(SelectedRow["Year"].ToString());
@@ -54,19 +75,93 @@ namespace MyCar
                 return;
             }
             DateTime lDateBegin = new DateTime(lYear, lMonth, 1);
-            DateTime lDateEnd = new DateTime(lYear, lMonth, DateTime.DaysInMonth(lYear,lMonth));
-
-
+            DateTime lDateEnd = new DateTime(lYear, lMonth, DateTime.DaysInMonth(lYear, lMonth));
             fuelBindingSource.Filter = String.Format("DateFilling >= '{0:yyyy-MM-dd}' AND DateFilling <= '{1:yyyy-MM-dd}'", lDateBegin, lDateEnd);
-            //"DateFilling >= '20180101' "; //+ d.ToShortDateString();
-            
-            //MessageBox.Show(String.Format("{0} {1}", SelectedRow["Month"], SelectedRow["Year"]));
         }
 
 
-        private void btExit_Click(object sender, EventArgs e)
+        private void fuelDataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            this.Close();
+            if (mOnEditRow)
+            {
+                mOnEditRow = false;
+                this.fuelDataGridView.ReadOnly = true;
+                this.fuelBindingSource.EndEdit();
+                UpdateNow();
+            }
+
+        }
+
+
+        private void btEditRow_Click(object sender, EventArgs e)
+        {
+            this.fuelDataGridView.ReadOnly = false;
+            this.fuelDataGridView.BeginEdit(true);
+            mOnEditRow = true;
+        }
+
+        private void btDeleteRow_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.fuelBindingSource.RemoveCurrent();
+                this.fuelBindingSource.EndEdit();
+                //this.Validate();
+                //myCarDataSet.AcceptChanges();
+                //this.fuelTableAdapter.DeleteCommand()
+                this.fuelTableAdapter.Update(this.myCarDataSet);
+                //UpdateNow();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        private void btAddRow_Click(object sender, EventArgs e)
+        {
+            this.fuelBindingSource.AddNew();
+
+            DataRowView lCurrentRow = fuelBindingSource.Current as DataRowView;
+            lCurrentRow["DateFilling"] = DateTime.Today;
+            lCurrentRow["Litres"] = 0.0;
+            lCurrentRow["PricePerLitre"] = 0.0;
+            lCurrentRow["SumFilling"] = 0.0;
+            lCurrentRow["Distance"] = 0.0;
+            lCurrentRow["Odometr"] = 0.0;
+
+            this.fuelDataGridView.ReadOnly = false;
+            this.fuelDataGridView.BeginEdit(true);
+            mOnEditRow = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+        
+        }
+    }
+
+    public class FuelRecord
+    {
+        Int32 Id { get; set; }
+        DateTime DateFilling { get; set; }
+        Double Litres { get; set; }
+        Double PricePerLitre { get; set; }
+        Double SumFilling { get; set; }
+        Double Distance { get; set; }
+        Double Odometr { get; set; }
+
+        public FuelRecord()
+        {
+            Id = 0;
+            DateFilling = DateTime.Now;
+            Litres = 0.0;
+            PricePerLitre = 0.0;
+            SumFilling = 0.0;
+            Distance = 0.0;
+            Odometr = 0.0;
         }
     }
 }
