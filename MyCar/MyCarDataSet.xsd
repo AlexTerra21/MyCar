@@ -2,52 +2,11 @@
 <xs:schema id="MyCarDataSet" targetNamespace="http://tempuri.org/MyCarDataSet.xsd" xmlns:mstns="http://tempuri.org/MyCarDataSet.xsd" xmlns="http://tempuri.org/MyCarDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="MyCarConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="MyCarConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MyCar.Properties.Settings.GlobalReference.Default.MyCarConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MountlyReportTableAdapter" GeneratorDataComponentClassName="MountlyReportTableAdapter" Name="MountlyReport" UserDataComponentName="MountlyReportTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="MyCarConnectionString (Settings)" DbObjectName="MyCar.dbo.MountlyReport" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Месяц, Год, Километры, Литры, Затраты, [Средняя цена за литр], [л / 100 км], [руб / 1 км] FROM dbo.MountlyReport</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="Месяц" DataSetColumn="Месяц" />
-              <Mapping SourceColumn="Год" DataSetColumn="Год" />
-              <Mapping SourceColumn="Километры" DataSetColumn="Километры" />
-              <Mapping SourceColumn="Литры" DataSetColumn="Литры" />
-              <Mapping SourceColumn="Затраты" DataSetColumn="Затраты" />
-              <Mapping SourceColumn="Средняя цена за литр" DataSetColumn="Средняя цена за литр" />
-              <Mapping SourceColumn="л / 100 км" DataSetColumn="л / 100 км" />
-              <Mapping SourceColumn="руб / 1 км" DataSetColumn="руб / 1 км" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MonthYearTableAdapter" GeneratorDataComponentClassName="MonthYearTableAdapter" Name="MonthYear" UserDataComponentName="MonthYearTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="MyCarConnectionString (Settings)" DbObjectName="MyCar.dbo.MonthYear" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT MonthYear, Month, Year FROM dbo.MonthYear</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="MonthYear" DataSetColumn="MonthYear" />
-              <Mapping SourceColumn="Month" DataSetColumn="Month" />
-              <Mapping SourceColumn="Year" DataSetColumn="Year" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FuelTableAdapter" GeneratorDataComponentClassName="FuelTableAdapter" Name="Fuel" UserDataComponentName="FuelTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="MyCarConnectionString (Settings)" DbObjectName="MyCar.dbo.Fuel" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -120,61 +79,52 @@ SELECT Id, DateFilling, Litres, PricePerLitre, SumFilling, Distance, Odometr FRO
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MountlyReportTableAdapter" GeneratorDataComponentClassName="MountlyReportTableAdapter" Name="MountlyReport" UserDataComponentName="MountlyReportTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MyCarConnectionString (Settings)" DbObjectName="MyCar.dbo.MountlyReport" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT MonthYear, Месяц, Год, Километры, Литры, Затраты, [Средняя цена за литр], [л / 100 км], [руб / 1 км] FROM dbo.MountlyReport</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MonthYear" DataSetColumn="MonthYear" />
+              <Mapping SourceColumn="Месяц" DataSetColumn="Месяц" />
+              <Mapping SourceColumn="Год" DataSetColumn="Год" />
+              <Mapping SourceColumn="Километры" DataSetColumn="Километры" />
+              <Mapping SourceColumn="Литры" DataSetColumn="Литры" />
+              <Mapping SourceColumn="Затраты" DataSetColumn="Затраты" />
+              <Mapping SourceColumn="Средняя цена за литр" DataSetColumn="Средняя цена за литр" />
+              <Mapping SourceColumn="л / 100 км" DataSetColumn="л / 100 км" />
+              <Mapping SourceColumn="руб / 1 км" DataSetColumn="руб / 1 км" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
-        <Sources />
+        <Sources>
+          <DbSource ConnectionRef="MyCarConnectionString (Settings)" DbObjectName="MyCar.dbo.GetAveragePrice" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="GetAveragePrice" MethodsParameterType="CLR" Modifier="Public" Name="GetAveragePrice" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="GetAveragePrice">
+            <SelectCommand>
+              <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                <CommandText>dbo.GetAveragePrice</CommandText>
+                <Parameters>
+                  <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                  <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Month" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                  <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Year" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                  <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="numeric" DbType="Decimal" Direction="InputOutput" ParameterName="@AveragePrice" Precision="4" ProviderType="Decimal" Scale="2" Size="5" SourceColumnNullMapping="false" SourceVersion="Current" />
+                </Parameters>
+              </DbCommand>
+            </SelectCommand>
+          </DbSource>
+        </Sources>
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
   <xs:element name="MyCarDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="MyCarDataSet" msprop:Generator_UserDSName="MyCarDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="MountlyReport" msprop:Generator_TableClassName="MountlyReportDataTable" msprop:Generator_TableVarName="tableMountlyReport" msprop:Generator_TablePropName="MountlyReport" msprop:Generator_RowDeletingName="MountlyReportRowDeleting" msprop:Generator_RowChangingName="MountlyReportRowChanging" msprop:Generator_RowEvHandlerName="MountlyReportRowChangeEventHandler" msprop:Generator_RowDeletedName="MountlyReportRowDeleted" msprop:Generator_UserTableName="MountlyReport" msprop:Generator_RowChangedName="MountlyReportRowChanged" msprop:Generator_RowEvArgName="MountlyReportRowChangeEvent" msprop:Generator_RowClassName="MountlyReportRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Месяц" msprop:Generator_ColumnVarNameInTable="columnМесяц" msprop:Generator_ColumnPropNameInRow="Месяц" msprop:Generator_ColumnPropNameInTable="МесяцColumn" msprop:Generator_UserColumnName="Месяц" type="xs:int" minOccurs="0" />
-              <xs:element name="Год" msprop:Generator_ColumnVarNameInTable="columnГод" msprop:Generator_ColumnPropNameInRow="Год" msprop:Generator_ColumnPropNameInTable="ГодColumn" msprop:Generator_UserColumnName="Год" type="xs:int" minOccurs="0" />
-              <xs:element name="Километры" msprop:Generator_ColumnVarNameInTable="columnКилометры" msprop:Generator_ColumnPropNameInRow="Километры" msprop:Generator_ColumnPropNameInTable="КилометрыColumn" msprop:Generator_UserColumnName="Километры" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Литры" msprop:Generator_ColumnVarNameInTable="columnЛитры" msprop:Generator_ColumnPropNameInRow="Литры" msprop:Generator_ColumnPropNameInTable="ЛитрыColumn" msprop:Generator_UserColumnName="Литры" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Затраты" msprop:Generator_ColumnVarNameInTable="columnЗатраты" msprop:Generator_ColumnPropNameInRow="Затраты" msprop:Generator_ColumnPropNameInTable="ЗатратыColumn" msprop:Generator_UserColumnName="Затраты" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Средняя_x0020_цена_x0020_за_x0020_литр" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnСредняя_цена_за_литр" msprop:Generator_ColumnPropNameInRow="Средняя_цена_за_литр" msprop:Generator_ColumnPropNameInTable="Средняя_цена_за_литрColumn" msprop:Generator_UserColumnName="Средняя цена за литр" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="4000" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="л_x0020__x002F__x0020_100_x0020_км" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="_columnл___100_км" msprop:Generator_ColumnPropNameInRow="_л___100_км" msprop:Generator_ColumnPropNameInTable="_л___100_кмColumn" msprop:Generator_UserColumnName="л / 100 км" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="4000" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="руб_x0020__x002F__x0020_1_x0020_км" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="_columnруб___1_км" msprop:Generator_ColumnPropNameInRow="_руб___1_км" msprop:Generator_ColumnPropNameInTable="_руб___1_кмColumn" msprop:Generator_UserColumnName="руб / 1 км" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="4000" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="MonthYear" msprop:Generator_TableClassName="MonthYearDataTable" msprop:Generator_TableVarName="tableMonthYear" msprop:Generator_RowChangedName="MonthYearRowChanged" msprop:Generator_TablePropName="MonthYear" msprop:Generator_RowDeletingName="MonthYearRowDeleting" msprop:Generator_RowChangingName="MonthYearRowChanging" msprop:Generator_RowEvHandlerName="MonthYearRowChangeEventHandler" msprop:Generator_RowDeletedName="MonthYearRowDeleted" msprop:Generator_RowClassName="MonthYearRow" msprop:Generator_UserTableName="MonthYear" msprop:Generator_RowEvArgName="MonthYearRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="MonthYear" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMonthYear" msprop:Generator_ColumnPropNameInRow="MonthYear" msprop:Generator_ColumnPropNameInTable="MonthYearColumn" msprop:Generator_UserColumnName="MonthYear" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="13" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Month" msprop:Generator_ColumnVarNameInTable="columnMonth" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_ColumnPropNameInTable="MonthColumn" msprop:Generator_UserColumnName="Month" type="xs:int" minOccurs="0" />
-              <xs:element name="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_UserColumnName="Year" type="xs:int" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
         <xs:element name="Fuel" msprop:Generator_TableClassName="FuelDataTable" msprop:Generator_TableVarName="tableFuel" msprop:Generator_TablePropName="Fuel" msprop:Generator_RowDeletingName="FuelRowDeleting" msprop:Generator_RowChangingName="FuelRowChanging" msprop:Generator_RowEvHandlerName="FuelRowChangeEventHandler" msprop:Generator_RowDeletedName="FuelRowDeleted" msprop:Generator_UserTableName="Fuel" msprop:Generator_RowChangedName="FuelRowChanged" msprop:Generator_RowEvArgName="FuelRowChangeEvent" msprop:Generator_RowClassName="FuelRow">
           <xs:complexType>
             <xs:sequence>
@@ -185,6 +135,45 @@ SELECT Id, DateFilling, Litres, PricePerLitre, SumFilling, Distance, Odometr FRO
               <xs:element name="SumFilling" msprop:Generator_ColumnVarNameInTable="columnSumFilling" msprop:Generator_ColumnPropNameInRow="SumFilling" msprop:Generator_ColumnPropNameInTable="SumFillingColumn" msprop:Generator_UserColumnName="SumFilling" type="xs:decimal" />
               <xs:element name="Distance" msprop:Generator_ColumnVarNameInTable="columnDistance" msprop:Generator_ColumnPropNameInRow="Distance" msprop:Generator_ColumnPropNameInTable="DistanceColumn" msprop:Generator_UserColumnName="Distance" type="xs:decimal" />
               <xs:element name="Odometr" msprop:Generator_ColumnVarNameInTable="columnOdometr" msprop:Generator_ColumnPropNameInRow="Odometr" msprop:Generator_ColumnPropNameInTable="OdometrColumn" msprop:Generator_UserColumnName="Odometr" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MountlyReport" msprop:Generator_TableClassName="MountlyReportDataTable" msprop:Generator_TableVarName="tableMountlyReport" msprop:Generator_TablePropName="MountlyReport" msprop:Generator_RowDeletingName="MountlyReportRowDeleting" msprop:Generator_RowChangingName="MountlyReportRowChanging" msprop:Generator_RowEvHandlerName="MountlyReportRowChangeEventHandler" msprop:Generator_RowDeletedName="MountlyReportRowDeleted" msprop:Generator_UserTableName="MountlyReport" msprop:Generator_RowChangedName="MountlyReportRowChanged" msprop:Generator_RowEvArgName="MountlyReportRowChangeEvent" msprop:Generator_RowClassName="MountlyReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MonthYear" msprop:Generator_ColumnVarNameInTable="columnMonthYear" msprop:Generator_ColumnPropNameInRow="MonthYear" msprop:Generator_ColumnPropNameInTable="MonthYearColumn" msprop:Generator_UserColumnName="MonthYear" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Месяц" msprop:Generator_ColumnVarNameInTable="columnМесяц" msprop:Generator_ColumnPropNameInRow="Месяц" msprop:Generator_ColumnPropNameInTable="МесяцColumn" msprop:Generator_UserColumnName="Месяц" type="xs:int" minOccurs="0" />
+              <xs:element name="Год" msprop:Generator_ColumnVarNameInTable="columnГод" msprop:Generator_ColumnPropNameInRow="Год" msprop:Generator_ColumnPropNameInTable="ГодColumn" msprop:Generator_UserColumnName="Год" type="xs:int" minOccurs="0" />
+              <xs:element name="Километры" msprop:Generator_ColumnVarNameInTable="columnКилометры" msprop:Generator_ColumnPropNameInRow="Километры" msprop:Generator_ColumnPropNameInTable="КилометрыColumn" msprop:Generator_UserColumnName="Километры" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Литры" msprop:Generator_ColumnVarNameInTable="columnЛитры" msprop:Generator_ColumnPropNameInRow="Литры" msprop:Generator_ColumnPropNameInTable="ЛитрыColumn" msprop:Generator_UserColumnName="Литры" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Затраты" msprop:Generator_ColumnVarNameInTable="columnЗатраты" msprop:Generator_ColumnPropNameInRow="Затраты" msprop:Generator_ColumnPropNameInTable="ЗатратыColumn" msprop:Generator_UserColumnName="Затраты" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Средняя_x0020_цена_x0020_за_x0020_литр" msprop:Generator_ColumnVarNameInTable="columnСредняя_цена_за_литр" msprop:Generator_ColumnPropNameInRow="Средняя_цена_за_литр" msprop:Generator_ColumnPropNameInTable="Средняя_цена_за_литрColumn" msprop:Generator_UserColumnName="Средняя цена за литр" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="л_x0020__x002F__x0020_100_x0020_км" msprop:Generator_ColumnVarNameInTable="_columnл___100_км" msprop:Generator_ColumnPropNameInRow="_л___100_км" msprop:Generator_ColumnPropNameInTable="_л___100_кмColumn" msprop:Generator_UserColumnName="л / 100 км" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="руб_x0020__x002F__x0020_1_x0020_км" msprop:Generator_ColumnVarNameInTable="_columnруб___1_км" msprop:Generator_ColumnPropNameInRow="_руб___1_км" msprop:Generator_ColumnPropNameInTable="_руб___1_кмColumn" msprop:Generator_UserColumnName="руб / 1 км" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

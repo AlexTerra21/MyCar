@@ -20,7 +20,7 @@ namespace MyCar
         public Form1()
         {
             InitializeComponent();
-            monthYearBindingSource.Sort = " Year,Month";
+            this.mountlyReportBindingSource.Sort = "Год,Месяц";
         }
 
         private void fuelBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -41,8 +41,12 @@ namespace MyCar
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "myCarDataSet.MountlyReport". При необходимости она может быть перемещена или удалена.
+            this.mountlyReportTableAdapter.Fill(this.myCarDataSet.MountlyReport);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "myCarDataSet.MountlyReport". При необходимости она может быть перемещена или удалена.
+            this.mountlyReportTableAdapter.Fill(this.myCarDataSet.MountlyReport);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "myCarDataSet.MonthYear". При необходимости она может быть перемещена или удалена.
-            this.monthYearTableAdapter.Fill(this.myCarDataSet.MonthYear);
+            
             // TODO: данная строка кода позволяет загрузить данные в таблицу "myCarDataSet.Fuel". При необходимости она может быть перемещена или удалена.
             this.fuelTableAdapter.Fill(this.myCarDataSet.Fuel);
 
@@ -53,7 +57,7 @@ namespace MyCar
         {
             String lFilter = fuelBindingSource.Filter;
             this.fuelTableAdapter.Update(myCarDataSet);
-            this.monthYearTableAdapter.Fill(this.myCarDataSet.MonthYear);
+            this.mountlyReportTableAdapter.Fill(this.myCarDataSet.MountlyReport);
             this.fuelTableAdapter.Fill(this.myCarDataSet.Fuel);
             fuelBindingSource.Filter = lFilter;
         }
@@ -67,8 +71,8 @@ namespace MyCar
         private void cbFilterMonthYear_SelectionChangeCommitted(object sender, EventArgs e)
         {
             DataRow SelectedRow = ((DataRowView)cbFilterMonthYear.SelectedItem).Row;
-            Int32 lYear = Int32.Parse(SelectedRow["Year"].ToString());
-            Int32 lMonth = Int32.Parse(SelectedRow["Month"].ToString());
+            Int32 lYear = Int32.Parse(SelectedRow["Год"].ToString());
+            Int32 lMonth = Int32.Parse(SelectedRow["Месяц"].ToString());
             if (lYear == 0)
             {
                 fuelBindingSource.Filter = "";
