@@ -1,6 +1,6 @@
 ﻿namespace MyCar
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -62,6 +62,7 @@
             this.руб___1_кмLabel1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btReport = new System.Windows.Forms.Button();
             литрыLabel = new System.Windows.Forms.Label();
             затратыLabel = new System.Windows.Forms.Label();
             средняя_цена_за_литрLabel = new System.Windows.Forms.Label();
@@ -146,6 +147,8 @@
             // 
             this.fuelDataGridView.AllowUserToAddRows = false;
             this.fuelDataGridView.AllowUserToDeleteRows = false;
+            this.fuelDataGridView.AllowUserToResizeColumns = false;
+            this.fuelDataGridView.AllowUserToResizeRows = false;
             this.fuelDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.fuelDataGridView.AutoGenerateColumns = false;
@@ -430,11 +433,22 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Общие данные за выбраный период";
             // 
-            // Form1
+            // btReport
+            // 
+            this.btReport.Location = new System.Drawing.Point(588, 111);
+            this.btReport.Name = "btReport";
+            this.btReport.Size = new System.Drawing.Size(108, 23);
+            this.btReport.TabIndex = 20;
+            this.btReport.Text = "Отчет";
+            this.btReport.UseVisualStyleBackColor = true;
+            this.btReport.Click += new System.EventHandler(this.btReport_Click);
+            // 
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 548);
+            this.Controls.Add(this.btReport);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btDeleteRow);
             this.Controls.Add(this.btEditRow);
@@ -443,7 +457,7 @@
             this.Controls.Add(this.btExit);
             this.Controls.Add(this.fuelDataGridView);
             this.MinimumSize = new System.Drawing.Size(580, 436);
-            this.Name = "Form1";
+            this.Name = "Main";
             this.Text = "Учет топлива";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fuelDataGridView)).EndInit();
@@ -488,6 +502,7 @@
         private System.Windows.Forms.Label километрыLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btReport;
     }
 }
 

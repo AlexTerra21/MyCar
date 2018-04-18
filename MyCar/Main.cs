@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace MyCar
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
         /// <summary>
         /// Флаг показывающий, что строка находится в режиме редактирования
         /// </summary>
         Boolean mOnEditRow = false;
 
-        public Form1()
+        public Main()
         {
             InitializeComponent();
             this.mountlyReportBindingSource.Sort = "Год,Месяц";
@@ -141,9 +141,11 @@ namespace MyCar
             mOnEditRow = true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+      
+        private void btReport_Click(object sender, EventArgs e)
         {
-        
+            Report lForm = new Report();
+            lForm.Show();
         }
     }
 
