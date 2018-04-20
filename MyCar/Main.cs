@@ -16,7 +16,7 @@ namespace MyCar
         /// Флаг показывающий, что строка находится в режиме редактирования
         /// </summary>
         Boolean mOnEditRow = false;
-
+        Int32 mSelectedFilter = 0;
         public Main()
         {
             InitializeComponent();
@@ -60,6 +60,7 @@ namespace MyCar
             this.mountlyReportTableAdapter.Fill(this.myCarDataSet.MountlyReport);
             this.fuelTableAdapter.Fill(this.myCarDataSet.Fuel);
             fuelBindingSource.Filter = lFilter;
+            this.cbFilterMonthYear.SelectedIndex = mSelectedFilter;
         }
 
         private void btExit_Click(object sender, EventArgs e)
@@ -99,6 +100,7 @@ namespace MyCar
 
         private void btEditRow_Click(object sender, EventArgs e)
         {
+            mSelectedFilter = this.cbFilterMonthYear.SelectedIndex;
             this.fuelDataGridView.ReadOnly = false;
             this.fuelDataGridView.BeginEdit(true);
             mOnEditRow = true;
@@ -106,6 +108,8 @@ namespace MyCar
 
         private void btDeleteRow_Click(object sender, EventArgs e)
         {
+            // TODO: Добавить запрос на удаление...
+            mSelectedFilter = this.cbFilterMonthYear.SelectedIndex;
             try
             {
                 this.fuelBindingSource.RemoveCurrent();
@@ -113,8 +117,8 @@ namespace MyCar
                 //this.Validate();
                 //myCarDataSet.AcceptChanges();
                 //this.fuelTableAdapter.DeleteCommand()
-                this.fuelTableAdapter.Update(this.myCarDataSet);
-                //UpdateNow();
+                //this.fuelTableAdapter.Update(this.myCarDataSet);
+                UpdateNow();
 
             }
             catch (Exception ex)
@@ -126,6 +130,7 @@ namespace MyCar
 
         private void btAddRow_Click(object sender, EventArgs e)
         {
+            mSelectedFilter = this.cbFilterMonthYear.SelectedIndex;
             this.fuelBindingSource.AddNew();
 
             DataRowView lCurrentRow = fuelBindingSource.Current as DataRowView;
@@ -145,29 +150,29 @@ namespace MyCar
         private void btReport_Click(object sender, EventArgs e)
         {
             Report lForm = new Report();
-            lForm.Show();
+            lForm.ShowDialog();
         }
     }
 
-    public class FuelRecord
-    {
-        Int32 Id { get; set; }
-        DateTime DateFilling { get; set; }
-        Double Litres { get; set; }
-        Double PricePerLitre { get; set; }
-        Double SumFilling { get; set; }
-        Double Distance { get; set; }
-        Double Odometr { get; set; }
+    //public class FuelRecord
+    //{
+    //    Int32 Id { get; set; }
+    //    DateTime DateFilling { get; set; }
+    //    Double Litres { get; set; }
+    //    Double PricePerLitre { get; set; }
+    //    Double SumFilling { get; set; }
+    //    Double Distance { get; set; }
+    //    Double Odometr { get; set; }
 
-        public FuelRecord()
-        {
-            Id = 0;
-            DateFilling = DateTime.Now;
-            Litres = 0.0;
-            PricePerLitre = 0.0;
-            SumFilling = 0.0;
-            Distance = 0.0;
-            Odometr = 0.0;
-        }
-    }
+    //    public FuelRecord()
+    //    {
+    //        Id = 0;
+    //        DateFilling = DateTime.Now;
+    //        Litres = 0.0;
+    //        PricePerLitre = 0.0;
+    //        SumFilling = 0.0;
+    //        Distance = 0.0;
+    //        Odometr = 0.0;
+    //    }
+    //}
 }
