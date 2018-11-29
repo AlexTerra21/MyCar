@@ -44,12 +44,9 @@ namespace MyCar
             // TODO: данная строка кода позволяет загрузить данные в таблицу "myCarDataSet.MountlyReport". При необходимости она может быть перемещена или удалена.
             this.mountlyReportTableAdapter.Fill(this.myCarDataSet.MountlyReport);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "myCarDataSet.MountlyReport". При необходимости она может быть перемещена или удалена.
-            this.mountlyReportTableAdapter.Fill(this.myCarDataSet.MountlyReport);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "myCarDataSet.MonthYear". При необходимости она может быть перемещена или удалена.
-            
+            //this.mountlyReportTableAdapter.Fill(this.myCarDataSet.MountlyReport);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "myCarDataSet.Fuel". При необходимости она может быть перемещена или удалена.
             this.fuelTableAdapter.Fill(this.myCarDataSet.Fuel);
-
         }
 
 
